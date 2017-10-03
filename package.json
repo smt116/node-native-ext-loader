@@ -1,0 +1,19 @@
+{
+  "name": "native-ext-loader",
+  "version": "1.0.0",
+  "description": "Loader for Node native extensions",
+  "main": "index.js",
+  "repository": "https://github.com/smt116/node-native-loader",
+  "scripts": {
+  },
+  "keywords": [
+    "node",
+    "native",
+    "loader"
+  ],
+  "author": "Maciej Małecki <smt116@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "loader-utils": "^1.1.0"
+  }
+}
