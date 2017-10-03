@@ -1,6 +1,6 @@
 # Node Native Loader
 
-Module for loading native files in Node and Electron applications. The project is inspired by the (node-addon-loader)[https://github.com/ushu/node-addon-loader]. It works in the similar way but allows to build path in the runtime.
+Module for loading native files in Node and Electron applications. The project is inspired by the [node-addon-loader](https://github.com/ushu/node-addon-loader). It works in the similar way but **allows to build path in the runtime**.
 
 ## Install
 
@@ -42,7 +42,7 @@ module: {
 
 ### `name`
 
-This option allows to change the file name in the output directory. You can use all placeholders defined in the (loader-utils)[https://github.com/webpack/loader-utils/tree/v1.1.0#interpolatename] package.
+This option allows to change the file name in the output directory. You can use all placeholders defined in the [loader-utils](https://github.com/webpack/loader-utils/tree/v1.1.0#interpolatename) package.
 
 ### `rewritePath`
 
