@@ -31,7 +31,7 @@ It is possible to adjust options:
 module: {
   rules: [
     test: /\.node$/,
-    loader: 'node-native-loader',
+    loader: 'native-ext-loader',
     options: {
       name: '[hex].[ext]',
       rewritePath: path.resolve(__dirname, 'dist')
