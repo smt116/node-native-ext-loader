@@ -1,4 +1,4 @@
-# master
+# 2.0.0
 
 * Remove `loader-utils` dependency. (5156da688769f861cf657ee5f7087310f7ec6819)
 * Remove configurable `name` option. (5156da688769f861cf657ee5f7087310f7ec6819)
