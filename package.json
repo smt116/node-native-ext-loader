@@ -1,18 +1,18 @@
 {
-  "name": "native-ext-loader",
-  "version": "1.1.0",
+  "author": "Maciej Małecki <smt116@gmail.com>",
+  "dependencies": {},
   "description": "Loader for Node native extensions",
+  "keywords": [
+    "electron",
+    "loader",
+    "native",
+    "node",
+    "webpack"
+  ],
+  "license": "MIT",
   "main": "index.js",
+  "name": "native-ext-loader",
   "repository": "https://github.com/smt116/node-native-loader",
   "scripts": {},
-  "keywords": [
-    "node",
-    "native",
-    "loader"
-  ],
-  "author": "Maciej Małecki <smt116@gmail.com>",
-  "license": "MIT",
-  "dependencies": {
-    "loader-utils": "^1.1.0"
-  }
+  "version": "1.1.0"
 }

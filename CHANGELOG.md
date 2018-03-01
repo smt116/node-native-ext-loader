@@ -1,6 +1,12 @@
+# master
+
+* Remove `loader-utils` dependency. (5156da688769f861cf657ee5f7087310f7ec6819)
+* Remove configurable `name` option. (5156da688769f861cf657ee5f7087310f7ec6819)
+* Assume that custom options are a valid hash object. (5156da688769f861cf657ee5f7087310f7ec6819)
+
 # 1.1.0
 
-* Add a support for Webpack 4.0.x. ([#1](https://github.com/smt116/node-native-ext-loader/pull/1) by [@matsnow](https://github.com/matsnow))
+* Add a support for Webpack 4.0.x. (#1 by @matsnow)
 
 # 1.0.0
 

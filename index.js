@@ -1,19 +1,12 @@
-var loaderUtils = require("loader-utils");
 var path = require("path");
 
-module.exports = function(content) {
+module.exports = function (content) {
   const defaultConfig = {
-    name: "[name].[ext]",
     rewritePath: undefined
   };
 
-  const config = Object.assign(defaultConfig, loaderUtils.getOptions(this));
-
-  const context = this.options ? this.options.context : this.rootContext;
-  const fileName = loaderUtils.interpolateName(this, config.name, {
-    context: context,
-    content: content
-  });
+  const config = Object.assign(defaultConfig, this.query);
+  const fileName = path.basename(this.resourcePath);
 
   if (this.emitFile) {
     this.emitFile(fileName, content, false);

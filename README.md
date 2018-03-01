@@ -33,17 +33,14 @@ module: {
     test: /\.node$/,
     loader: 'native-ext-loader',
     options: {
-      name: '[hex].[ext]',
       rewritePath: path.resolve(__dirname, 'dist')
     }
   ]
 }
 ```
 
-### `name`
+### `rewritePath` (default: `undefined`)
 
-This option allows to change the file name in the output directory. You can use all placeholders defined in the [loader-utils](https://github.com/webpack/loader-utils/tree/v1.1.0#interpolatename) package.
+It allows to set an absolute paths to native files.
 
-### `rewritePath`
-
-This options allows to set an absolute path. Note that it needs to remain `undefined` if you are building a package with embedded files.
+Note that it needs to remain `undefined` if you are building a package with embedded files. This way, the compiled application will work no matter of its location. This is important when building Electron applications that can be placed in any directory by the end user.
