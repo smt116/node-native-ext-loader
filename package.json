@@ -1,11 +1,10 @@
 {
   "name": "native-ext-loader",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Loader for Node native extensions",
   "main": "index.js",
   "repository": "https://github.com/smt116/node-native-loader",
-  "scripts": {
-  },
+  "scripts": {},
   "keywords": [
     "node",
     "native",
