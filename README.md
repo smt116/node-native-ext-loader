@@ -31,7 +31,7 @@ module: {
 
 Options are configurable using `options` hash:
 
-```javascript
+```js
 module: {
   rules: [{
     test: /\.node$/,
