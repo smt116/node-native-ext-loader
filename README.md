@@ -18,12 +18,12 @@ $ yarn add --dev native-ext-loader
 
 Update rules entry in the Webpack configuration file:
 
-```javascript
+```js
 module: {
-  rules: [
+  rules: [{
     test: /\.node$/,
     loader: 'native-ext-loader'
-  ]
+  }]
 }
 ```
 
@@ -31,15 +31,15 @@ module: {
 
 Options are configurable using `options` hash:
 
-```javascript
+```js
 module: {
-  rules: [
+  rules: [{
     test: /\.node$/,
     loader: 'native-ext-loader',
     options: {
       rewritePath: path.resolve(__dirname, 'dist')
     }
-  ]
+  }]
 }
 ```
 
