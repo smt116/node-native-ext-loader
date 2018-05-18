@@ -16,7 +16,12 @@ module.exports = function (content) {
   }
 
   if (config.rewritePath) {
-    const filePath = JSON.stringify(path.join(config.rewritePath, fileName));
+    let filePath;
+    if (config.rewritePath === './') {
+      filePath = JSON.stringify(config.rewritePath + fileName);
+    } else {
+      filePath = JSON.stringify(path.join(config.rewritePath, fileName));
+    }
 
     return "try { global.process.dlopen(module, " + filePath + "); } " +
       "catch(exception) { throw new Error('Cannot open ' + " + filePath + " + ': ' + exception); };";
