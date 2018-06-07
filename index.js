@@ -17,7 +17,10 @@ module.exports = function (content) {
 
   if (config.rewritePath) {
     let filePath;
-    if (config.rewritePath === './') {
+    // path.join will remove ./ but it might important in some project configuration (electron)
+    // so we handle it separately
+    //support both windows and unix way of defining current directory
+    if (config.rewritePath === './'  || config.rewritePath === '.\') {
       filePath = JSON.stringify(config.rewritePath + fileName);
     } else {
       filePath = JSON.stringify(path.join(config.rewritePath, fileName));
