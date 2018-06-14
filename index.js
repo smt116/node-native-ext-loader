@@ -1,6 +1,6 @@
 var path = require("path");
 
-module.exports = function (content) {
+module.exports = function(content) {
   const defaultConfig = {
     rewritePath: undefined
   };
@@ -12,27 +12,35 @@ module.exports = function (content) {
     this.emitFile(fileName, content, false);
     this.addDependency(this.resourcePath);
   } else {
-    throw new Error('emitFile function is not available');
+    throw new Error("emitFile function is not available");
   }
 
   if (config.rewritePath) {
     let filePath;
-    // path.join will remove ./ but it might important in some project configuration (electron)
-    // so we handle it separately
-    //support both windows and unix way of defining current directory
-    if (config.rewritePath === './' || config.rewritePath === '.\\') {
+
+    if (config.rewritePath === "./" || config.rewritePath === ".\\") {
       filePath = JSON.stringify(config.rewritePath + fileName);
     } else {
       filePath = JSON.stringify(path.join(config.rewritePath, fileName));
     }
 
-    return "try { global.process.dlopen(module, " + filePath + "); } " +
-      "catch(exception) { throw new Error('Cannot open ' + " + filePath + " + ': ' + exception); };";
+    return (
+      "try { global.process.dlopen(module, " +
+      filePath +
+      "); } " +
+      "catch(exception) { throw new Error('Cannot open ' + " +
+      filePath +
+      " + ': ' + exception); };"
+    );
   } else {
-    return "const path = require('path');" +
-      "const filePath = path.resolve(__dirname, " + JSON.stringify(fileName) + ");" +
+    return (
+      "const path = require('path');" +
+      "const filePath = path.resolve(__dirname, " +
+      JSON.stringify(fileName) +
+      ");" +
       "try { global.process.dlopen(module, filePath); } " +
-      "catch(exception) { throw new Error('Cannot open ' + filePath + ': ' + exception); };";
+      "catch(exception) { throw new Error('Cannot open ' + filePath + ': ' + exception); };"
+    );
   }
 };
 
