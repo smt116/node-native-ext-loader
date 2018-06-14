@@ -14,5 +14,5 @@
   "name": "native-ext-loader",
   "repository": "https://github.com/smt116/node-native-loader",
   "scripts": {},
-  "version": "2.0.0"
+  "version": "2.1.0"
 }
