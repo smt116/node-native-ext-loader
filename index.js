@@ -39,7 +39,13 @@ module.exports = function(content) {
       JSON.stringify(fileName) +
       ");" +
       "try { global.process.dlopen(module, filePath); } " +
-      "catch(exception) { throw new Error('Cannot open ' + filePath + ': ' + exception); };"
+      "catch(exception) { " +
+      "try { " +
+      "const filePath2 = path.resolve(__dirname, '..', '..', 'app.asar', " +
+      JSON.stringify(fileName) +
+      "); global.process.dlopen(module, filePath2); } " +
+      "catch(e) { throw new Error('Cannot open ' + filePath + ' and ' + filePath2 + ': ' + e); } " +
+      "}"
     );
   }
 };
