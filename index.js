@@ -2,6 +2,7 @@ var path = require("path");
 
 module.exports = function(content) {
   const defaultConfig = {
+    filenameBasePath: undefined,
     rewritePath: undefined
   };
 
@@ -33,10 +34,12 @@ module.exports = function(content) {
       " + ': ' + exception); };"
     );
   } else {
+    const filePathArray = (defaultConfig.filenameBasePath || []).concat(fileName);
+    const filePath = JSON.stringify(filePathArray).slice(1, -1); // to remove '[' and ']'
     return (
       "const path = require('path');" +
       "const filePath = path.resolve(__dirname, " +
-      JSON.stringify(fileName) +
+      filePath +
       ");" +
       "try { global.process.dlopen(module, filePath); } " +
       "catch(exception) { throw new Error('Cannot open ' + filePath + ': ' + exception); };"
