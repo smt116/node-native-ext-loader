@@ -2,6 +2,7 @@ var path = require("path");
 
 module.exports = function(content) {
   const defaultConfig = {
+    filenameBasePath: undefined,
     rewritePath: undefined
   };
 
@@ -33,19 +34,15 @@ module.exports = function(content) {
       " + ': ' + exception); };"
     );
   } else {
+    const filePathArray = (defaultConfig.filenameBasePath || []).concat(fileName);
+    const filePath = JSON.stringify(filePathArray).slice(1, -1); // to remove '[' and ']'
     return (
       "const path = require('path');" +
       "const filePath = path.resolve(__dirname, " +
-      JSON.stringify(fileName) +
+      filePath +
       ");" +
       "try { global.process.dlopen(module, filePath); } " +
-      "catch(exception) { " +
-      "try { " +
-      "const filePath2 = path.resolve(__dirname, '..', '..', 'app.asar', " +
-      JSON.stringify(fileName) +
-      "); global.process.dlopen(module, filePath2); } " +
-      "catch(e) { throw new Error('Cannot open ' + filePath + ' and ' + filePath2 + ': ' + e); } " +
-      "}"
+      "catch(exception) { throw new Error('Cannot open ' + filePath + ': ' + exception); };"
     );
   }
 };
