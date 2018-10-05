@@ -2,7 +2,7 @@
 
 Package for loading native files in Node and Electron applications. The project is inspired by the [node-addon-loader](https://github.com/ushu/node-addon-loader). It works in the similar way but **allows to build path at runtime**.
 
-## Install
+## Installation
 
 Add the package to the development dependencies:
 
@@ -46,6 +46,12 @@ module: {
   ];
 }
 ```
+
+### `basePath` (default: `[]`)
+
+It allows adjusting path to the native module. The array will be concatenated with the resource name and then used in the runtime. For example, when the compile application lives inside `app.asar/renderer` subdirectory (Electron package), the path to the native module can be adjusted by using `basePath: ['app.asar', 'renderer']`.
+
+Note that `basePath` is ignored when `rewritePath` option is used.
 
 ### `rewritePath` (default: `undefined`)
 

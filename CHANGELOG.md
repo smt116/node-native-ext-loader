@@ -1,3 +1,7 @@
+# master
+
+- Allow adjusting base path for relative locations (d073559673, 64505798ee)
+
 # 2.1.0
 
 - Handle the relative "current directory" path when using `rewritePath`
