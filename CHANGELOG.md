@@ -1,4 +1,4 @@
-# master
+# 2.2.0
 
 - Allow adjusting base path for relative locations (d073559673, 64505798ee)
 
