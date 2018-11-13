@@ -1,3 +1,7 @@
+# 2.3.0
+
+- Allow skipping native file emition (cea2ff2d29)
+
 # 2.2.0
 
 - Allow adjusting base path for relative locations (d073559673, 64505798ee)
