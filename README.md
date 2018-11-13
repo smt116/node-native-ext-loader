@@ -59,6 +59,10 @@ It allows to set an absolute paths to native files.
 
 Note that it needs to remain `undefined` if you are building a package with embedded files. This way, the compiled application will work no matter of its location. This is important when building Electron applications that can be placed in any directory by the end user.
 
+### `emit` (default: `true`)
+
+Specifies whether the imported `.node` file will be copied to the output directory.
+
 ## Releasing a new version
 
 1.  Bump version number in the `package.json` and `CHANGELOG.md` files.

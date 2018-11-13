@@ -3,18 +3,22 @@ var path = require("path");
 module.exports = function(content) {
   const defaultConfig = {
     basePath: [],
-    rewritePath: undefined
+    rewritePath: undefined,
+    emit: true
   };
 
   const config = Object.assign(defaultConfig, this.query);
   const fileName = path.basename(this.resourcePath);
 
-  if (this.emitFile) {
-    this.emitFile(fileName, content, false);
-    this.addDependency(this.resourcePath);
-  } else {
-    throw new Error("emitFile function is not available");
+  if (config.emit) {
+    if (this.emitFile) {
+      this.emitFile(fileName, content, false);
+    } else {
+      throw new Error("emitFile function is not available");
+    }
   }
+  
+  this.addDependency(this.resourcePath);
 
   if (config.rewritePath) {
     let filePath;
