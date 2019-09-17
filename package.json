@@ -7,12 +7,13 @@
     "loader",
     "native",
     "node",
-    "webpack"
+    "webpack",
+    "nw"
   ],
   "license": "MIT",
   "main": "index.js",
-  "name": "native-ext-loader",
-  "repository": "https://github.com/smt116/node-native-loader",
+  "name": "@oni/nw-native-ext-loader",
+  "repository": "https://github.com/oxfordni/node-native-ext-loader",
   "scripts": {},
   "version": "2.3.0"
 }
