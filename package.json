@@ -12,8 +12,11 @@
   ],
   "license": "MIT",
   "main": "index.js",
-  "name": "@oni/nw-native-ext-loader",
-  "repository": "https://github.com/oxfordni/node-native-ext-loader",
+  "name": "@oxfordni/nw-native-ext-loader",
+  "repository": "https://github.com/oxfordni/node-native-ext-loader.git",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
   "scripts": {},
   "version": "2.3.0"
 }
