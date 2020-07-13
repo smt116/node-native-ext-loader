@@ -63,7 +63,26 @@ Note that it needs to remain `undefined` if you are building a package with embe
 
 Specifies whether the imported `.node` file will be copied to the output directory.
 
-## Releasing a new version
+## First time publish to github setup
+
+You need to point at the github pacakges repository:
+
+```
+npm login --registry=https://npm.pkg.github.com/ --scope=@oxfordni
+```
+
+- username is your username
+- password is a github access token (https://github.com/settings/tokens)
+- email is your email (not important)
+
+This token needs to have permissions:
+
+- read:packages
+- write:packages (if you want to publish)
+
+This is stored in your .npmrc file so you only have to do it once.
+
+## Publishing
 
 1.  Bump version number in the `package.json` and `CHANGELOG.md` files.
 1.  Run `npm install` to update `package-lock.json` file.
