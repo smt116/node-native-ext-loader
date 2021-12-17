@@ -26,7 +26,7 @@ module.exports = function(content) {
     if (config.rewritePath === "./" || config.rewritePath === ".\\") {
       filePath = JSON.stringify(config.rewritePath + fileName);
     } else {
-      filePath = JSON.stringify(path.join(config.rewritePath, fileName));
+      filePath = JSON.stringify(path.join(config.rewritePath, fileName).split(path.sep).join('/'));
     }
 
     return (
@@ -43,9 +43,7 @@ module.exports = function(content) {
 
     return (
       "const path = require('path');" +
-      "const filePath = path.resolve(__dirname, " +
-      filePath +
-      ");" +
+      "const filePath = path.resolve(__dirname, " + filePath + ").split(path.sep).join('/');" +
       "try { global.process.dlopen(module, filePath); } " +
       "catch(exception) { throw new Error('Cannot open ' + filePath + ': ' + exception); };"
     );
